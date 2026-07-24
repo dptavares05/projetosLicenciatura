@@ -1,6 +1,6 @@
-# Engineering Portfolio - Diogo Tavares
+# Engineering Projects Portfolio - Diogo Tavares
 
-Final-year Computer Engineering student at the University of Évora. Focused on building efficient software solutions, combining rigorous engineering principles with practical utility.
+Computer Engineering graduate at the University of Évora. Focused on building efficient software solutions, combining rigorous engineering principles with practical utility.
 
 This repository serves as a centralized portfolio gathering the most relevant projects developed throughout my Bachelor's degree.
 
