@@ -41,7 +41,7 @@ Actively expanding development capabilities by learning React and TypeScript to 
 
 | Category | Project | Description |
 | :--- | :--- | :--- |
-| **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Modular event management system featuring registration logic and scalable architecture. **[Java, Spring Boot]** |
+| **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Modular event management system featuring registration logic and scalable architecture. **[Java, Maven]** |
 | **Web App** | [Room Rent](./3ano/trabalhos_TecnologiasWeb/tweb-t2-58049-59119) | Full-stack room renting web platform for students with responsive front-end design and RESTful API integration. **[JavaScript, HTML/CSS]** |
 | **Mobile App** | [Opportunistic Messenger](./3ano/trabalho_redesOportunistas) | Native Android application prototype engineered for decentralized opportunistic network communication, featuring dynamic node state management. **[Kotlin, Android SDK]** |
 | **Networking** | [Real-Time Chat UDP/TCP](./2ano/trabalho_RedesdeComputadores) | Client-server real-time messaging application. Integrates UDP sockets for low-latency transmission and TCP for reliable file transfers, managing concurrency via `pthreads` and `select()`. **[C]** |
