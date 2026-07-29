@@ -7,8 +7,9 @@ This repository serves as a centralized portfolio gathering the most relevant pr
 ---
 
 ## Currently Learning
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
 
-Actively expanding development capabilities by learning React and TypeScript to build dynamic, scalable web applications and enhance full-stack proficiency.
+Currently learning React to build dynamic, scalable web applications starting with enhancing and modernizing older full-stack projects.
 
 ---
 
@@ -29,7 +30,6 @@ Actively expanding development capabilities by learning React and TypeScript to 
 
 ### Frameworks & Libraries
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-![React(learning)](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 ### Tools & Infrastructure
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
