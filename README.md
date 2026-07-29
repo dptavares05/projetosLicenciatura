@@ -23,10 +23,13 @@ Actively expanding development capabilities by learning React and TypeScript to 
 ![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
 ![OCaml](https://img.shields.io/badge/ocaml-%23EC6813.svg?style=for-the-badge&logo=ocaml&logoColor=white)
 ![SQL](https://img.shields.io/badge/sql-%2300758F.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 
 ### Frameworks & Libraries
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React(learning)](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 ### Tools & Infrastructure
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
@@ -43,7 +46,7 @@ Actively expanding development capabilities by learning React and TypeScript to 
 | :--- | :--- | :--- |
 | **Backend** | [Eventastic](https://github.com/dptavares05/eventastic) | Modular event management system featuring registration logic and scalable architecture. **[Java, Maven]** |
 | **Web App** | [Room Rent](./3ano/trabalhos_TecnologiasWeb/tweb-t2-58049-59119) | Full-stack room renting web platform for students with responsive front-end design and RESTful API integration. **[JavaScript, HTML/CSS]** |
-| **Mobile App** | [Opportunistic Messenger](./3ano/trabalho_redesOportunistas) | Native Android application prototype engineered for decentralized opportunistic network communication, featuring dynamic node state management. **[Kotlin, Android SDK]** |
+| **Mobile App** | [Opportunistic Chat app](./3ano/trabalho_redesOportunistas) | Native Android application prototype engineered for decentralized opportunistic network communication, featuring dynamic node state management. **[Kotlin, Android SDK]** |
 | **Networking** | [Real-Time Chat UDP/TCP](./2ano/trabalho_RedesdeComputadores) | Client-server real-time messaging application. Integrates UDP sockets for low-latency transmission and TCP for reliable file transfers, managing concurrency via `pthreads` and `select()`. **[C]** |
 | **Hardware** | [Digital Traffic Controller](./1ano/trabalho_SistemasDigitais) | Digital logic circuit designed and simulated in Logisim. Implements algorithmic state machine control optimized using Karnaugh maps and D-Type Flip-Flops. **[Logisim, Boolean Logic]** |
 | **Algorithms** | [EDA 2 Collection](./2ano/trabalhos_EstruturasdeDadosEAlgoritmos) | Advanced data structures and algorithms repository, including Edmonds-Karp (maximum flow), Dynamic Programming, and BFS graph traversals. **[C]** |
@@ -69,5 +72,6 @@ Actively expanding development capabilities by learning React and TypeScript to 
 
 ## Contact & Links
 
+* **Website**: [Personal Portfolio Website](https://dptavares05.github.io/)
 * **LinkedIn**: [Diogo Tavares](https://www.linkedin.com/in/diogo-tavares-834106376/)
 * **Email**: [dp.tavares05@gmail.com](mailto:dp.tavares05@gmail.com)
