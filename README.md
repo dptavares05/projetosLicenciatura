@@ -50,7 +50,7 @@ Currently learning React to build dynamic, scalable web applications starting wi
 | **Hardware** | [Digital Traffic Controller](./1ano/trabalho_SistemasDigitais) | Digital logic circuit designed and simulated in Logisim. Implements algorithmic state machine control optimized using Karnaugh maps and D-Type Flip-Flops. **[Logisim, Boolean Logic]** |
 | **Algorithms** | [EDA 2 Collection](./2ano/trabalhos_EstruturasdeDadosEAlgoritmos) | Advanced data structures and algorithms repository, including Edmonds-Karp (maximum flow), Dynamic Programming, and BFS graph traversals. **[C]** |
 | **Algorithmic Agent** | [Battleship OCaml Agent](./3ano/trabalho_programacao3) | Autonomous Battleship game agent utilizing a deterministic attack strategy. **[OCaml]** |
-| **Data Science** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Machine Learning models (Decision Trees, SVM) trained on Kaggle datasets for automated medical diagnosis. **[Python, Scikit-Learn]** |
+| **Data Science & Machine Learning** | [Brain Tumor Prediction](./3ano/trabalhos_MachineLearning) | Machine Learning models (Decision Trees, SVM) trained on Kaggle datasets for automated medical diagnosis. **[Python, Scikit-Learn]** |
 | **Low Level** | [Image De-noising](./1ano/trabalho_arquiteturaComputadores) | Low-level image processing implementation (mean/median noise-reduction filters). **[RISC-V Assembly]** |
 | **Logic & Games** | [Guru](./1ano/trabalho_programacao2/P2-Guru-WordGame-Java) & [Ouri](./1ano/trabalho_programacao1) | Game logic implementations, custom dictionaries, and state persistence. **[Java, C]** |
 
