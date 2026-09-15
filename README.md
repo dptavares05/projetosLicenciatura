@@ -9,7 +9,7 @@ This repository serves as a centralized portfolio gathering the most relevant pr
 ## Currently Learning
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) 
 
-Currently learning React to build dynamic, scalable web applications starting with enhancing and modernizing older full-stack projects.
+Currently learning React and documenting the process in [this repo](https://github.com/dptavares05/reactProjects), to build dynamic, scalable web applications starting with enhancing and modernizing older full-stack projects.
 
 ---
 
