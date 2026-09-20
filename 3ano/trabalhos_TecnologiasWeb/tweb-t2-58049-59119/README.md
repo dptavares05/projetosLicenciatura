@@ -1,59 +1,70 @@
-# Student Housing Manager - Plataforma de Arrendamento Universitário
+# Room Rent — University Student Housing Platform
 
-## 1. Introdução
+Full-stack web application engineered to simulate a student union housing management system, facilitating university room rentals by connecting landlords (listings) and students (housing requests). Built with a robust MVC architecture, relational data persistence, and fine-grained access control.
 
-Este projeto foi desenvolvido para a unidade curricular de **Tecnologias Web** da Universidade de Évora. Trata-se de uma aplicação Web Full-Stack desenhada para simular a gestão de uma associação de estudantes que facilita o arrendamento de quartos. A plataforma liga senhorios (ofertas) e estudantes (procuras), garantindo a persistência e segurança dos dados.
+Developed as part of the Web Technologies curriculum at the University of Évora.
 
-## 2. Arquitetura do Sistema
+---
 
-A aplicação segue o padrão **MVC (Model-View-Controller)**, garantindo uma separação clara de responsabilidades:
+## Tech Stack & Tools
 
-* **Backend**: Implementado em **Java** com a framework **Spring Boot**.
-* **Persistência**: Base de dados relacional **PostgreSQL**.
-* **Frontend**: Páginas dinâmicas utilizando **Thymeleaf**, estilizadas com **CSS3 (Flexbox)** para garantir responsividade.
-* **Segurança**: Implementação de **Spring Security** para autenticação e encriptação de passwords.
+### Core Technologies & Frameworks
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Thymeleaf](https://img.shields.io/badge/thymeleaf-%23005F0F.svg?style=for-the-badge&logo=thymeleaf&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-## 3. Áreas de Acesso e Funcionalidades
+---
 
-A plataforma organiza-se em três níveis de permissão:
+## System Architecture
 
-### Área Pública
+The system is structured following the **Model-View-Controller (MVC)** architectural pattern to ensure separation of concerns, maintainability, and clean code boundaries:
 
-* **Dashboard**: Visualização dos anúncios mais recentes (ofertas e procuras).
-* **Pesquisa Avançada**: Filtros por zona, tipo de anúncio e pesquisa de texto livre.
+| Layer / Component | Technology | Responsibility |
+| :--- | :--- | :--- |
+| **Backend / API** | Java & Spring Boot | Core domain logic, routing controllers, transaction coordination, and security rules. |
+| **Persistence** | PostgreSQL & Spring Data JPA | Relational data schema management, query optimization, and entity mappings. |
+| **Presentation** | Thymeleaf & CSS3 (Flexbox) | Server-side rendered responsive user interface without external framework bloat. |
+| **Security** | Spring Security | Role-based access control (RBAC), session management, and cryptographic password hashing. |
 
-### Área Privada (Utilizadores Registados)
+---
 
-* **Gestão de Anúncios**: Criação, edição e remoção de ofertas de quartos ou pedidos de procura.
-* **Sistema de Mensagens**: Caixa de mensagens privada interna para comunicação direta entre senhorios e estudantes.
-* **Perfil**: Gestão de dados de conta e preferências.
+## Access Levels & Core Features
 
-### Área de Administração
+* **Public Portal**:
+  * Dynamic dashboard aggregating the latest listings (rooms offered vs. housing requests).
+  * Multi-parameter search engine with filtering by zone, listing type, and free-text queries.
+* **Private User Dashboard (Authenticated Landlords & Students)**:
+  * Full lifecycle listing management (create, update, and remove housing offers or search posts).
+  * Internal private messaging channel enabling direct, real-time communication between landlords and prospective student tenants.
+  * Account profile center managing user preferences and credentials.
+* **Administration & Moderation Suite**:
+  * Moderation engine for user account lifecycle (review, approval, and moderation of new registrations).
+  * Platform-wide content governance and validation for all submitted housing listings.
 
-* **Controlo de Utilizadores**: Aprovação e moderação de novas contas.
-* **Moderação de Conteúdo**: Validação e gestão de todos os anúncios submetidos na plataforma.
+---
 
-## 4. Decisões Técnicas de Implementação
+## Key Technical Decisions
 
-* **Spring Data JPA**: Utilização de consultas personalizadas (`@Query`) e métodos de repositório avançados para filtros de pesquisa simultâneos.
-* **Segurança**: Proteção contra vulnerabilidades comuns (como *Broken Object Level Authentication*) através de regras de acesso granulares.
-* **UX/UI**: Design limpo e otimizado para dispositivos móveis e desktop, sem recurso a frameworks pesadas (como Bootstrap), mantendo o código leve e personalizado.
+* **Advanced JPA Queries**: Utilized custom `@Query` definitions and advanced repository specifications in Spring Data JPA to support composite, multi-criteria filtering across large datasets.
+* **Granular Security Architecture**: Mitigated critical vulnerabilities (such as Broken Object-Level Authorization) by enforcing strict method-level and URL-based security constraints.
+* **Lightweight Custom UI**: Implemented a responsive user experience using modern CSS3 (Flexbox) rather than heavy CSS frameworks (e.g., Bootstrap), minimizing bundle overhead and ensuring bespoke visual styling.
 
-## 5. Estrutura do Repositório
+---
 
-* `/src/main/java`: Código fonte Java (Controllers, Services, Models, Repositories).
-* `/src/main/resources/templates`: Vistas dinâmicas em Thymeleaf.
-* `/src/main/resources/static`: Ficheiros estáticos (CSS, imagens, JavaScript).
-* `relatorio.pdf`: Documentação técnica detalhada do projeto.
+## Repository Structure
 
-## 6. Como Executar
-
-1. **Base de Dados**: Certifique-se de que tem o PostgreSQL instalado e uma base de dados criada.
-2. **Configuração**: Ajuste as credenciais da BD no ficheiro `application.properties`.
-3. **Execução**:
-
-    ```bash
-    mvn spring-boot:run
-    ```
-
-4. **Acesso**: Aceda a `http://localhost:8080` no seu navegador.
+```text
+├── src/
+│   ├── main/
+│   │   ├── java/                 # Application source code (Controllers, Services, Models, Repositories)
+│   │   └── resources/
+│   │       ├── static/           # Static assets (CSS stylesheets, images, client scripts)
+│   │       ├── templates/        # Thymeleaf server-side templates
+│   │       └── application.properties # Environment and database configuration
+├── relatorio.pdf                 # Comprehensive technical documentation & report
+└── pom.xml                       # Maven dependencies and build lifecycle setup
+```
