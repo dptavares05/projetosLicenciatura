@@ -7,8 +7,6 @@ Developed as part of the Computer Networks curriculum at the University of Évor
 ---
 
 ## Tech Stack & Tools
-
-### Platform & Core Technologies
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
