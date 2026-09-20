@@ -1,31 +1,56 @@
-# OppNetChat - Simulação de Redes Oportunistas
+# OppNetGuard — Opportunistic Network Messaging Simulation
 
-Este projeto foi desenvolvido no âmbito da unidade curricular de Sistemas Móveis e Ambientes (SMA) da Universidade de Évora. Consiste num protótipo (mock-up funcional) de uma aplicação móvel para Android, desenhado para simular a interface e a gestão de estados de um sistema de troca de mensagens em redes oportunistas (ambientes descentralizados sem infraestrutura de Internet).
+Native Android mobile prototype engineered to simulate interface flows and state transitions for decentralized messaging in opportunistic networks (infrastructure-less, delay-tolerant environments). Designed to model the user experience and node behaviors required when communication relies entirely on intermittent peer encounters.
 
-## Funcionalidades Simuladas
+Developed as part of the Mobile Systems and Environments (SMA) curriculum at the University of Évora.
 
-* **Arquitetura de Navegação:** Implementação de uma prova de conceito visual que demonstra como um utilizador interagiria com uma rede intermitente.
-* **Gestão Visual de Estados do Nó:** A aplicação simula a transição do dispositivo entre dois papéis operacionais distintos na rede, através de ecrãs e interfaces dedicadas:
-  * **Modo Seed (Semente):** Simulação do ecrã de nó de origem, com interface gráfica para a criação e injeção da mensagem inicial na rede.
-  * **Modo Helper (Auxiliar):** Simulação do ecrã de nó retransmissor. Representa visualmente a receção de mensagens de nós vizinhos e a gestão de um *buffer* temporário de retenção antes do reencaminhamento teórico.
+---
 
-## Tecnologias e Ferramentas
+## Tech Stack & Tools
 
-* **Linguagem de Programação:** Kotlin
-* **Plataforma:** Android SDK
-* **Ambiente de Desenvolvimento:** Android Studio
-* **Foco do Projeto:** UI/UX, Gestão de Ciclo de Vida de Activities/Fragments e simulação de estados.
+### Platform & Core Technologies
+![Kotlin](https://img.shields.io/badge/kotlin-%237F52FF.svg?style=for-the-badge&logo=kotlin&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Gradle](https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-## Como Compilar e Testar
+---
 
-1. Clone este repositório para a sua máquina local.
-2. Abra o projeto utilizando o Android Studio.
-3. Aguarde que o Gradle sincronize as dependências.
-4. Compile a aplicação selecionando `Build > Make Project`.
-5. Execute a aplicação num emulador ou dispositivo físico selecionando `Run > Run 'app'`.
+## System Overview & Simulated Roles
 
-*Nota: Este projeto serve como uma demonstração de interface gráfica e gestão de ecrãs (Mock-up). A transferência física de dados entre dispositivos via P2P/Bluetooth Low Energy não está ativada nesta versão de demonstração.*
+The application models dynamic peer-to-peer behaviors within ad-hoc, intermittent networks by simulating distinct node operating states through dedicated user interface layouts:
 
-## Autoria
+| Node Role | Screen / Interface Mode | Responsibility & Simulated Behavior |
+| :--- | :--- | :--- |
+| **Seed Node** | Seed Interface Mode | Acts as message originator; enables creation, configuration, and initial packet injection into the ad-hoc topology. |
+| **Helper Node** | Relay Interface Mode | Acts as intermediary store-and-forward relay; visually tracks incoming packets and manages a local retention buffer awaiting encounters. |
 
-* Diogo Tavares (Nº 58049)
+---
+
+## Key Technical Decisions
+
+* **State-Driven UI Flows**: Modeled delay-tolerant network lifecycle transitions through decoupled view components, simulating real-world node discovery and transmission events.
+* **Component Lifecycle Management**: Leveraged Android Activities/Fragments architecture to manage view hierarchies, navigation stacks, and volatile application states cleanly.
+* **Minimal Overhead UX**: Designed clean UI layouts focused entirely on observability into packet buffers, operational modes, and simulated peer encounter states.
+
+---
+
+## Technical Scope & Constraints
+
+> **Proof-of-Concept Notice**: This project was developed as a functional UI/UX prototype and node state simulator. Physical radio-layer transmissions (such as Wi-Fi Direct or Bluetooth Low Energy discovery) are emulated in software and not enabled at the hardware transport layer in this release.
+
+---
+
+## Getting Started
+
+### Prerequisites
+* **Android Studio**: Ladybug / Electric Eel or newer
+* **Android SDK**: API Level 26+
+* **JDK**: 17 or higher
+
+### Build & Run Guide
+1. **Clone the repository**:
+   ```bash
+   git clone [https://github.com/dptavares05/trabalho_redesOportunistas.git](https://github.com/dptavares05/trabalho_redesOportunistas.git)
+   cd trabalho_redesOportunistas
+   ```
