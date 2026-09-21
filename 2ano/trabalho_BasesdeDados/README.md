@@ -1,39 +1,55 @@
-# Projeto: Sistema de Gestão de Membros e Receitas de Doces (SQL)
+# Pastry Recipe & Social Member Management System (SQL)
 
-## 1. Introdução
+Relational database model and complex query suite engineered to govern a community-driven culinary platform. Designed to manage member social graphs (recursive friendships), categorized pastry recipes, ingredient-level unit cost aggregation, and preparation logs with qualitative sensory ratings.
 
-Este projeto foi desenvolvido no âmbito da unidade curricular de **Bases de Dados** da Universidade de Évora. O objetivo principal consistiu na modelação e implementação de uma base de dados relacional capaz de gerir informações sobre membros, as suas relações de amizade, a criação e confeção de doces, e a gestão detalhada de ingredientes e custos associados.
+Developed as part of the Databases (Bases de Dados) curriculum at the University of Évora.
 
-## 2. Estrutura da Base de Dados
+---
 
-A base de dados foi desenhada para suportar um ecossistema social de partilha de culinária. As principais entidades e relações incluem:
+## Tech Stack & Tools
 
-* **Membros**: Utilizadores da plataforma com dados de nascimento e país de origem.
-* **Amizades**: Relação recursiva que permite conectar membros entre si.
-* **Doces e Ingredientes**: Catálogo de receitas com descrição, género e cálculo dinâmico de custos com base na quantidade e preço unitário dos ingredientes.
-* **Confeções (Tabela 'Fez')**: Registo histórico de quando um membro confeciona um doce, incluindo avaliações de aspeto, sabor e tempo despendido.
+### Platform & Core Technologies
+![SQL](https://img.shields.io/badge/sql-%2300758F.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/postgresql-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-## 3. Tecnologias Utilizadas
+---
 
-* **SQL (Standard Query Language)**: Para definição de dados (DDL) e manipulação de dados (DML).
-* **Álgebra Relacional**: Utilizada na fase de planeamento para otimização das consultas complexas.
+## Relational Schema & Entity Overview
 
-## 4. Funcionalidades e Consultas Implementadas
+The schema models an interactive culinary social network, balancing entity normalization against analytical query performance:
 
-O projeto resolve uma série de problemas de negócio através de SQL avançado, incluindo:
+| Entity / Table | Conceptual Relationship | Role & Key Attributes |
+| :--- | :--- | :--- |
+| **Membros (Members)** | Core Entity | User accounts with demographic metadata (birth date, nationality, profile records). |
+| **Amizades (Friendships)** | Recursive Self-Referencing Relation | Directed/undirected graph representation linking members to peers. |
+| **Doces & Ingredientes** | Many-to-Many via Composition Junction | Recipe catalog detailing genres, quantities, and ingredient unit costs. |
+| **Fez (Preparations Log)** | Event History Junction | Historical execution log tracking recipe creation, preparation duration, and visual/flavor scores. |
 
-* **Gestão de Custos**: Cálculo do custo total de um doce somando todos os seus ingredientes.
-* **Análise de Desempenho**: Identificação dos membros que criaram mais doces ou que têm a melhor média de aspeto/sabor nas suas confeções.
-* **Filtros Complexos**: Consultas para encontrar membros que nunca usaram certos ingredientes (ex: Baunilha) ou que partilham todos os amigos de um utilizador específico.
+---
 
-## 5. Estrutura do Repositório
+## Core Analytical Capabilities & Business Logic
 
-* `Criação da Base de Dados.txt`: Script SQL contendo os comandos `CREATE TABLE` e as definições de chaves primárias e estrangeiras.
-* `Resposta as perguntas em SQl.txt`: Script contendo as resoluções de exercícios práticos, incluindo `INSERT INTO` e consultas `SELECT` complexas (Joins, Subqueries, Agregações).
-* `Relatório Base de Dados.pdf`: Documentação completa com as soluções em Álgebra Relacional e explicações teóricas.
+* **Dynamically Calculated Cost Modeling**: Aggregates variable recipe ingredient costs on the fly via composite joins, multiplying individual component quantities by unit pricing.
+* **Sensory Quality & Member Ranking**: Multi-attribute aggregation queries determining top creators based on cumulative recipe outputs and average sensory scores (taste and presentation metrics).
+* **Advanced Set & Relational Filtering**:
+  * Exclusion queries identifying members who have never incorporated specific target ingredients (e.g., Vanilla).
+  * Relational division and set containment queries to identify users who share an identical set of mutual friends with a given member.
 
-## 6. Como Utilizar
+---
 
-1. **Criação**: Execute o conteúdo do ficheiro `Criação da Base de Dados.txt` num motor de base de dados compatível com SQL (como MySQL, PostgreSQL ou SQLite).
-2. **Povoamento**: Utilize os comandos de `INSERT` presentes no ficheiro de respostas para carregar os dados de teste.
-3. **Consultas**: Execute as queries do ficheiro de respostas para verificar o funcionamento da lógica de negócio.
+## Key Technical Decisions
+
+* **Relational Algebra Foundations**: Designed and verified complex query execution plans using formal Relational Algebra expressions before SQL implementation, ensuring minimal intermediate Cartesian products.
+* **Strict Referential Integrity**: Configured foreign key cascades, unique pairs, and primary key constraints across recursive associations and multi-attribute relationship tables (`Fez`).
+* **Advanced DDL & DML Optimization**: Implemented nested subqueries, correlated existence checks (`EXISTS` / `NOT EXISTS`), and aggregation filters (`GROUP BY`, `HAVING`) to solve real-world domain requirements cleanly.
+
+---
+
+## Repository Structure
+
+```text
+├── Criação da Base de Dados.txt     # DDL script defining table structures, keys, and relational constraints
+├── Resposta as perguntas em SQl.txt # DML script containing mock datasets (INSERTs) and analytical queries
+├── Relatório Base de Dados.pdf      # Comprehensive technical report with relational algebra derivations
+└── README.md                        # Project documentation
