@@ -1,42 +1,49 @@
-#  Jogo Ouri - Programação 1
+# Ouri Board Game Engine — Strategy Game Implementation (C)
 
-Este projeto foi desenvolvido no âmbito da disciplina de Programação 1 da Universidade de Évora , durante o ano letivo de 2023/2024.
+Terminal-based engine for the traditional mancala-variant board game "Ouri", engineered in procedural C. Implements complete game state loops, rule enforcement algorithms (sowing mechanics, chain-reaction captures, and boundary skipping), automated engine-opponent logic, and file-based state serialization.
 
-##  Sobre o Projeto
+Developed as part of the Programming I (Programação 1) curriculum at the University of Évora (Academic Year 2023/2024).
 
-Este projeto consiste na implementação do jogo de tabuleiro tradicional "Ouri" através da linguagem C. O Ouri é um jogo de estratégia focado em tentar capturar as pedras do adversário, evitando ao mesmo tempo que as nossas sejam capturadas. O jogo disputa-se num tabuleiro de 14 casas (6 para cada jogador e 2 depósitos para armazenar pedras capturadas). O objetivo principal é alcançar 25 pedras no depósito para vencer.
+---
 
-**Funcionalidades Principais:**
-* **Modos de Jogo:** É possível escolher jogar contra outro jogador humano (Player vs Player) ou contra o computador (Player vs Engine).
-* **Gravar e Carregar Estado:** O jogo permite gravar o estado atual do tabuleiro num ficheiro `.txt` para continuar mais tarde, bem como carregar um jogo a partir desse ficheiro.
-* **Implementação de Regras Complexas:** Inclui a lógica de restrição de movimentos com pilhas de uma única pedra , saltos na distribuição de pilhas grandes (regra das 12)  e mecânicas de reações em cadeia nas capturas.
+## Tech Stack & Tools
 
-##  Documentação e Relatório Técnico
+### Platform & Core Technologies
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-Para obter informações detalhadas sobre a arquitetura do código, explicação aprofundada das funções principais e a resolução dos desafios lógicos encontrados (como a prevenção de capturas das próprias peças), por favor consulte o documento `Relatório P1.pdf` incluído na diretoria deste repositório.
+---
 
-##  Como Compilar e Executar
+## Game Rules & System Architecture
 
-Para testar o projeto localmente, abra o terminal na diretoria onde os ficheiros se encontram e execute os seguintes passos:
+The game is modeled around a 14-pit board representation: 12 active playing pits (6 per player) and 2 score storehouses (*depósitos*). The primary objective is to capture 25 out of the 48 total seeds.
 
-**1. Compilar o código fonte:**
-```bash
-gcc ouri.c -o ouri
-```
+| Component / Subsystem | Implementation File | Technical Role & Mechanism |
+| :--- | :--- | :--- |
+| **Core Game Loop** | `ouri.c` | Coordinates turn-taking, input parsing, victory validation, and board rendering. |
+| **Sowing Engine** | `ouri.c` | Counter-clockwise seed distribution routines, handling large pit skips (>11 seeds). |
+| **Capture Logic** | `ouri.c` | Backward chain-reaction verification for valid capturing states (2 or 3 seeds). |
+| **Game Modes** | `ouri.c` | Player vs. Player (PvP) and basic automated bot opponent (Player vs. Engine). |
+| **State Persistence** | `ouri.c` | CLI argument parsing and I/O serialization for reading/writing board matrices to `.txt`. |
 
-**2. Executar um jogo novo:**
-```bash
-./ouri
-```
+---
 
-**3. Executar carregando um jogo guardado:**
-O programa suporta a leitura de um ficheiro de tabuleiro passado diretamente como argumento na inicialização.
-```bash
-./ouri nome_do_arquivo.txt
-```
+## Key Technical Decisions
 
-##  Autores
-Trabalho de grupo realizado por:
-* Diogo Tavares 
-* Rodrigo Barreto
-* Cristiano Cascarrinho
+* **Procedural Board State Representation**: Modeled the 14-pit circular board using static arrays with index-arithmetic wrapping, minimizing memory allocation overhead and ensuring cache locality.
+* **Complex Sowing & Rule Enforcement**:
+  * **The "12-Rule" (Large Pits)**: Designed distribution tracking to skip the origin pit whenever a hand contains 12 or more seeds, ensuring strict compliance with official Ouri rules.
+  * **Single-Seed Restrictions**: Enforced movement limitations preventing non-essential single-seed moves when higher-stack alternatives are available.
+  * **Chain-Reaction Captures**: Built recursive/iterative check routines evaluating contiguous opposing pits backwards to award valid 2-seed and 3-seed captures.
+* **Stateless Save & Load Pipeline**: Utilized standard C file stream APIs (`fopen`, `fscanf`, `fprintf`) to serialize and restore board layouts directly via file arguments during CLI invocation.
+
+---
+
+## Repository Structure
+
+```text
+├── ouri.c                        # Core game logic, rule verification, and CLI rendering
+├── Relatório P1.pdf              # In-depth technical report and algorithmic explanations
+├── tabuleiro_exemplo.txt         # Optional saved state file for game resumption testing
+└── README.md                     # Project documentation
