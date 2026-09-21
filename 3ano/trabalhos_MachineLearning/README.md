@@ -1,55 +1,61 @@
-# Brain Tumor Diagnosis Prediction - Machine Learning
+# Brain Tumor Diagnosis Prediction — Machine Learning Classification
 
-## 1. Introdução
+Supervised machine learning pipeline engineered to classify brain tumors as **Malignant (1)** or **Benign (0)** from demographic data and Apparent Diffusion Coefficient (ADC) MRI texture features. Developed for the Kaggle "Diagnóstico de Tumores Cerebrais" competition, prioritizing the **F1-Score** metric and model generalization across unseen test sets.
 
-Este projeto foi desenvolvido no âmbito da unidade curricular de **Aprendizagem Automática** da Universidade de Évora. O objetivo principal é a construção de modelos preditivos para classificar tumores cerebrais como **Malignos (1)** ou **Benignos (0)**, utilizando atributos demográficos e medidas de textura extraídas de imagens de Ressonância Magnética (ADC).
+Developed as part of the Machine Learning (Aprendizagem Automática) curriculum at the University of Évora.
 
-O projeto foi submetido ao desafio Kaggle "Diagnóstico de Tumores Cerebrais", focando-se na maximização da métrica **F1-Score**.
+---
 
-## 2. O Conjunto de Dados
+## Tech Stack & Tools
 
-Os dados apresentam um desafio de agregação, uma vez que a unidade de predição é o **paciente**, mas os dados brutos contêm múltiplas fatias (slices) por indivíduo.
+### Platform & Libraries
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-%23F37626.svg?style=for-the-badge&logo=Jupyter&logoColor=white)
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 
-* **Atributos**: Idade, Sexo e 18 medidas de textura de imagens ADC.
-* **Agregação**: Implementámos técnicas de agregação (média) para reduzir a variabilidade intra-paciente e transformar o problema numa classificação binária robusta.
+---
 
-## 3. Metodologia e Modelos
+## Dataset & Aggregation Strategy
 
-Explorámos diversos algoritmos para encontrar o equilíbrio ideal entre complexidade e capacidade de generalização:
+The core technical challenge centered on hierarchical aggregation: predictions are evaluated at the **patient** level, while the raw MRI inputs encompass multiple slice records per subject.
 
-* **Modelos Testados**: Naive Bayes, Logistic Regression, SVM, Random Forest e Decision Trees.
-* **Seleção de Modelos**: Optámos por modelos com menor propensão ao *overfitting* devido ao tamanho médio do conjunto de dados.
-* **Otimização**: Ajuste de hiper-parâmetros para garantir robustez tanto na leaderboard pública como na privada do Kaggle.
+| Feature Category | Features | Preprocessing / Handling Strategy |
+| :--- | :--- | :--- |
+| **Demographics** | Age, Sex | Encoded and aligned per individual patient identity. |
+| **Texture Metrics** | 18 ADC MRI radiomic texture values | Multi-slice variance reduction via mean statistical pooling per patient. |
+| **Target Variable** | Diagnosis (`0` = Benign, `1` = Malignant) | Binary classification optimized for class-balanced F1-Score evaluation. |
 
-## 4. Resultados de Destaque
+---
 
-* **Melhor Desempenho**: O modelo baseado em **Decision Tree** obteve o score mais elevado na parte privada do teste (**0.833**), demonstrando uma excelente capacidade de generalização em dados novos.
-* **Conclusão Técnica**: Observámos que modelos mais simples como Regressão Logística e Naive Bayes serviram como excelentes *baselines*, superando modelos complexos em cenários de alta variância.
+## Model Evaluation & Results
 
-## 5. Estrutura do Repositório
+Multiple classification families were tuned to balance model capacity against overfitting risks on a moderate sample size:
 
-* `notebook_grupoAA.ipynb`: Notebook principal com todo o pipeline de Data Science (Limpeza, EDA, Treino e Avaliação).
-* `notebook_grupoAA.pdf`: Relatório técnico detalhado com a justificação das escolhas algorítmicas e análise de resultados.
-* `submission_...csv`: Ficheiros de submissão gerados para o Kaggle.
+| Model Architecture | Strengths & Role in Pipeline | Key Outcome / Generalization |
+| :--- | :--- | :--- |
+| **Decision Tree** | Interpretable thresholds, non-linear split boundaries | **Best Model**: Achieved peak private test score (**F1 = 0.833**). |
+| **Logistic Regression** | Linear baseline, regularized log-odds modeling | Highly stable baseline; prevented variance spikes. |
+| **Naive Bayes** | Probabilistic conditional independence baseline | Fast benchmark displaying low sensitivity to noise. |
+| **Support Vector Machines (SVM)** | Maximum margin boundary optimization | Solid margin separation across normalized texture spaces. |
+| **Random Forest** | Ensemble bagging and feature subsampling | Evaluated against variance reduction vs. single tree simplicity. |
 
-## 6. Como Correr o Projeto
+---
 
-### Pré-requisitos
+## Key Technical Decisions
 
-* Python 3.8+
-* Bibliotecas: `pandas`, `scikit-learn`, `numpy`, `matplotlib`, `seaborn`.
+* **Intra-Patient Aggregation**: Applied statistical mean aggregation across multiple MRI slices per patient, eliminating slice-level noise and stabilizing tabular representation before model ingestion.
+* **Overfitting Mitigation**: Given the dataset scale, prioritized controlled model complexities (hyperparameter pruning, depth constraints) to safeguard against public-to-private leaderboard score degradation.
+* **Baseline Benchmarking**: Maintained strict evaluation discipline where simpler models (Logistic Regression and Naive Bayes) served as baseline references, preventing artificial inflation of complex ensembles.
 
-### Execução
+---
 
-1. Clona o repositório.
-2. Instala as dependências:
+## Repository Structure
 
-    ```bash
-    pip install pandas scikit-learn numpy matplotlib seaborn
-    ```
-
-3. Abre o Jupyter Notebook para visualizar a análise:
-
-    ```bash
-    jupyter notebook notebook_grupoAA.ipynb
-    ```
+```text
+├── notebook_grupoAA.ipynb        # Complete Data Science pipeline (EDA, Preprocessing, Training, Eval)
+├── notebook_grupoAA.pdf          # Comprehensive technical report & algorithmic justifications
+├── submission_...csv             # Kaggle submission files and scored predictions
+└── README.md                     # Project documentation
